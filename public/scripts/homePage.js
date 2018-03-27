@@ -3,17 +3,16 @@
 $('#submit').click(function()
 {
     console.log("YUP");
-/*
-\    $.ajax({
+   $.ajax({
         url: '/post-feedback',
         type: 'POST',
         data: {
+	'client-first-name': $('input[name=client-first-name]').val(),
 
         }
     }
 
     );
-*/
 
 })
 
