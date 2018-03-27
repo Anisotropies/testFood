@@ -8,20 +8,24 @@
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
   <script type="text/javascript" language="javascript" src="scripts/homePage.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
 </head>
 <body>
     <h1>ApartmentsNow v1.0.3</h1>
     <h2>The better way to find an apartment</h1>
     <h3> Fill out this form: </h3>
         <form>
-        <label>First Name:<input type="text" name="client-first-name" required></label>
-	<br>
-	<label>Last Name:<input type="text" name="client-last-name" required></label>
-        <br>
-        <label>Email:<input type="text" name="client-email" required></label>
-        <br>
+                <div class="form-group">
+        <label>First Name: <input type="text" name="client-first-name" required></label>
+                    </div>
+	<label>Last Name: <input type="text" name="client-last-name" required></label>
+    <div class="form-group">
+        <label>Email: <input type="text" name="client-email" required></label>
+        </div>
+        <div class="form-group">
         <input id = "submit" type="submit" value="Submit">
+        </div>
     </form>
-    <a href="/view-feedbacks">View feedbacks</a>
+    <a href="/view-feedbacks">View feedback</a>
 </body>
 </html>
