@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Data</title>
+</head>
+<body>
+    <h1>ApartmentsNow</h1>
+    <h2>The better way to find an apartment</h1>
+    <h3> Fill out this form: </h3>
+        <form method="POST" action="/post-feedback">
+        <label>First Name:<input type="text" name="client-first-name" required></label>
+	<br>
+	<label>Last Name:<input type="text" name="client-last-name" required></label>
+        <br>
+        <label>Email:<input type="text" name="client-email" required></label>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <a href="/view-feedbacks">View feedbacks</a>
+</body>
+</html>

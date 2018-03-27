@@ -1,24 +1,31 @@
+var express = require('express');
+var path = require('path');
+var bodyParser = require('body-parser');
 var mongodb = require('mongodb');
 
-//We need to work with "MongoClient" interface in order to connect to a mongodb server.
-var MongoClient = mongodb.MongoClient;
+var url = process.env.MONGOLAB_URI;
 
-// Connection URL. This is where your mongodb server is running.
+var dbConn = mongodb.MongoClient.connect(url);
 
-//(Focus on This Variable)
-var url = process.env.MONGOLAB_URI;    
-//(Focus on This Variable)
+var app = express();
 
-// Use connect method to connect to the Server
-  MongoClient.connect(url, function (err, db) {
-  if (err) {
-    console.log('Unable to connect to the mongoDB server. Error:', err);
-  } else {
-    console.log('Connection established to', url);
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.resolve(__dirname, 'public')));
 
-    // do some work here with the database.
-
-    //Close connection
-    db.close();
-  }
+app.post('/post-feedback', function (req, res) {
+    dbConn.then(function(db) {
+        delete req.body._id; // for safety reasons
+        db.collection('feedbacks').insertOne(req.body);
+    });
+    res.send('Data received:\n' + JSON.stringify(req.body));
 });
+
+app.get('/view-feedbacks',  function(req, res) {
+    dbConn.then(function(db) {
+        db.collection('feedbacks').find({}).toArray().then(function(feedbacks) {
+            res.status(200).json(feedbacks);
+        });
+    });
+});
+
+app.listen(process.env.PORT || 3000, process.env.IP || '0.0.0.0' );
