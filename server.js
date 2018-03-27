@@ -18,6 +18,7 @@ app.post('/post-feedback', function (req, res) {
         db.collection('feedbacks').insertOne(req.body);
     });
    //res.send('Data received:\n' + JSON.stringify(req.body));
+	res.end();
 });
 
 app.get('/view-feedbacks',  function(req, res) {
