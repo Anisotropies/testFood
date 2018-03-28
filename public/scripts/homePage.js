@@ -3,7 +3,7 @@
 $('#submit').click(function()
 {
     console.log("YUP");
-   $.ajax({
+  /* $.ajax({
         url: '/post-feedback',
         type: 'POST',
         data: {
@@ -11,7 +11,11 @@ $('#submit').click(function()
 	'client-last-name': $('input[name=client-last-name]').val(),
 	'client-email': $('input[name=client-email]').val(),
         }
-    }
+    }*/
+
+	$.get("/view-feedbacks", function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);
+    });
 
     );
 
