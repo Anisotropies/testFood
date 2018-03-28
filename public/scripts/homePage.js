@@ -1,25 +1,21 @@
-  $(document).ready(function() {
+$(document).ready(function() {
 
-$('#submit').click(function()
-{
-    console.log("YUP");
-  /* $.ajax({
-        url: '/post-feedback',
-        type: 'POST',
-        data: {
-	'client-first-name': $('input[name=client-first-name]').val(),
-	'client-last-name': $('input[name=client-last-name]').val(),
-	'client-email': $('input[name=client-email]').val(),
-        }
- );
-
-    }*/
-
-	$.get("/view-feedbacks", function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);
-    });
-
-   
-})
+	$('#submit').click(function()
+	{
+	  	$.ajax({
+			url: '/post-feedback',
+			type: 'POST',
+			data: {
+			'client-first-name': $('input[name=client-first-name]').val(),
+			'client-last-name': $('input[name=client-last-name]').val(),
+			'client-email': $('input[name=client-email]').val(),
+			}
+	 	});  
+	});
+	$("#submit").hover(function(){
+        $(this).css({"background-color": "lightgrey", "cursor": "pointer"});
+		}, function(){
+		$(this).css("background-color", "grey");
+  	  });
 
 })
