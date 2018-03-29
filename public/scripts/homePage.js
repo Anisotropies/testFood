@@ -11,11 +11,12 @@ $(document).ready(function() {
 			'client-email': $('input[name=client-email]').val(),
 			}
 	 	});  
-	});
+		$("div.demo-container").html( "<p>Thank you for registering!</p>" );
+			});
 	$("#submit").hover(function(){
-        $(this).css({"background-color": "lightgrey", "cursor": "pointer"});
+        $(this).css({"background-color": "rgb(8,144,179)", "cursor": "pointer"});
 		}, function(){
-		$(this).css("background-color", "grey");
+		$(this).css("background-color", "rgb(12, 186, 255)");
   	  });
 
 })
